@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}!!!
+</h1>
+
+<h1 class="title">
+  Here is a list of Artists you might Like, select anyone to start building recommendation
+</h1>
+Artist Name =
+
+{% for l in l1 %}
+<form method="POST" action="./save">
+  <input type="hidden" value="{{l[0]}}" name="songid">
+  <input type="submit" value="{{l[1]}}" name="songname">,
+</form>
+
+
+{% endfor %}
+
+{% endblock %}

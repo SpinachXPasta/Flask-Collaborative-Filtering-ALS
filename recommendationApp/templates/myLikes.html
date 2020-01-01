@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+    <h1><font size = "30">My Likes</font></h1>
+  </br>
+  </br>
+    {% for l in likes %}
+    <form method="POST" action="./delete_song">
+      <input type="hidden" value="{{l[1]}}" name="sid_del">
+      {{l[0]}}<input type="submit" value="Delete">
+    </form>
+  {% endfor %}
+
+  <form method="POST" action="./myLikes">
+    <input type="hidden" value="Gen0" name="genRec">
+    <input type="submit" value="Generate recommendation">,
+  </form>
+</br>
+</br>
+</br>
+</br>
+
+  {% if new_s != "blank" %}
+  <h1> recommended Artists to Listen too </h1>
+  {% for n in new_s %}
+
+
+  <form method="POST" action="./save">
+    <input type="hidden" value="{{n[1]}}" name="songid">
+    <input type="hidden" value="{{n[2]}}" name="red">
+    <input type="submit" value="{{n[0]}}" name="songname">,
+  </form>
+
+  {% endfor %}
+  {% endif %}
+
+  </body>
+{% endblock %}

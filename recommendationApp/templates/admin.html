@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+    <h1><font size = "30">Manage Users</font></h1>
+  </br>
+  </br>
+  </br>
+  </br>
+    {% for s in send %}
+    <p>
+      Eamil = {{s.email}}
+    </p>
+    <p>
+      Name = {{s.name}}
+    </p>
+    <form method="POST" action="./delete">
+      <input type="hidden" value="{{s.email}}" name="email">
+      <input type="submit" value="Delete">
+    </form>
+
+  {% endfor %}
+  </body>
+{% endblock %}
